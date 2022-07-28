@@ -6,10 +6,12 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
 
 import java.io.IOException;
+import java.net.*;
 import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.Calendar;
 import java.util.Locale;
+
+import static eu.righettod.pocwebsocket.util.PathUtils.pathToResourceOf;
 
 /**
  * Utility class to manage the authentication JWT token
@@ -50,8 +52,9 @@ public class AuthenticationUtils {
      *
      * @return The secret as byte array
      * @throws IOException If any error occur during the secret loading
+     * @throws URISyntaxException If the path to the secrets file can not be constructed
      */
-    private static byte[] loadSecret() throws IOException {
-        return Files.readAllBytes(Paths.get("src", "main", "resources", "jwt-secret.txt"));
+    private static byte[] loadSecret() throws IOException, URISyntaxException {
+        return Files.readAllBytes(pathToResourceOf("/jwt-secret.txt", AuthenticationUtils.class));
     }
 }

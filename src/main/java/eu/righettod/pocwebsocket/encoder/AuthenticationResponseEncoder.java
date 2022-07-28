@@ -12,7 +12,6 @@ import eu.righettod.pocwebsocket.vo.AuthenticationResponse;
 import javax.websocket.EncodeException;
 import javax.websocket.Encoder;
 import javax.websocket.EndpointConfig;
-import java.io.File;
 import java.io.IOException;
 
 /**
@@ -34,7 +33,7 @@ public class AuthenticationResponseEncoder implements Encoder.Text<Authenticatio
      * @throws ProcessingException If any error occur during the schema loading
      */
     public AuthenticationResponseEncoder() throws IOException, ProcessingException {
-        JsonNode node = JsonLoader.fromFile(new File("src/main/resources/authentication-response-schema.json"));
+        JsonNode node = JsonLoader.fromResource("/authentication-response-schema.json");
         this.validationSchema = JsonSchemaFactory.byDefault().getJsonSchema(node);
     }
 

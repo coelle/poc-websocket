@@ -12,7 +12,6 @@ import eu.righettod.pocwebsocket.vo.MessageRequest;
 import javax.websocket.DecodeException;
 import javax.websocket.Decoder;
 import javax.websocket.EndpointConfig;
-import java.io.File;
 import java.io.IOException;
 
 /**
@@ -34,7 +33,7 @@ public class MessageRequestDecoder implements Decoder.Text<MessageRequest> {
      * @throws ProcessingException If any error occur during the schema loading
      */
     public MessageRequestDecoder() throws IOException, ProcessingException {
-        JsonNode node = JsonLoader.fromFile(new File("src/main/resources/message-request-schema.json"));
+        JsonNode node = JsonLoader.fromResource("/message-request-schema.json");
         this.validationSchema = JsonSchemaFactory.byDefault().getJsonSchema(node);
     }
 
