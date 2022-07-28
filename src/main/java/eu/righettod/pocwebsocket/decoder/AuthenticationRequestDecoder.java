@@ -12,7 +12,6 @@ import eu.righettod.pocwebsocket.vo.AuthenticationRequest;
 import javax.websocket.DecodeException;
 import javax.websocket.Decoder;
 import javax.websocket.EndpointConfig;
-import java.io.File;
 import java.io.IOException;
 
 /**
@@ -34,7 +33,7 @@ public class AuthenticationRequestDecoder implements Decoder.Text<Authentication
      * @throws ProcessingException If any error occur during the schema loading
      */
     public AuthenticationRequestDecoder() throws IOException, ProcessingException {
-        JsonNode node = JsonLoader.fromFile(new File("src/main/resources/authentication-request-schema.json"));
+        JsonNode node = JsonLoader.fromResource("/authentication-request-schema.json");
         this.validationSchema = JsonSchemaFactory.byDefault().getJsonSchema(node);
     }
 

@@ -12,7 +12,6 @@ import eu.righettod.pocwebsocket.vo.MessageResponse;
 import javax.websocket.EncodeException;
 import javax.websocket.Encoder;
 import javax.websocket.EndpointConfig;
-import java.io.File;
 import java.io.IOException;
 
 /**
@@ -34,7 +33,7 @@ public class MessageResponseEncoder implements Encoder.Text<MessageResponse> {
      * @throws ProcessingException If any error occur during the schema loading
      */
     public MessageResponseEncoder() throws IOException, ProcessingException {
-        JsonNode node = JsonLoader.fromFile(new File("src/main/resources/message-response-schema.json"));
+        JsonNode node = JsonLoader.fromResource("/message-response-schema.json");
         this.validationSchema = JsonSchemaFactory.byDefault().getJsonSchema(node);
     }
 
