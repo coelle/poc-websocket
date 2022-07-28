@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Run POC" type="MavenRunConfiguration" factoryName="Maven" show_console_on_std_out="true" show_console_on_std_err="true">
+  <configuration default="false" name="Run POC" type="MavenRunConfiguration" factoryName="Maven" show_console_on_std_err="true" show_console_on_std_out="true">
     <MavenSettings>
       <option name="myGeneralSettings" />
       <option name="myRunnerSettings" />
@@ -10,9 +10,10 @@
           </option>
           <option name="goals">
             <list>
-              <option value="tomcat7:run-war" />
+              <option value="cargo:run" />
             </list>
           </option>
+          <option name="pomFileName" />
           <option name="profilesMap">
             <map />
           </option>
@@ -21,6 +22,6 @@
         </MavenRunnerParameters>
       </option>
     </MavenSettings>
-    <method />
+    <method v="2" />
   </configuration>
 </component>
